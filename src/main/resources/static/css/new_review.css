@@ -1,0 +1,112 @@
+.wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0px;
+    padding-bottom: 20px;
+}
+
+.new-review-header {
+    background-color: #3c67eb;
+    padding: 20px 35px;
+    border: transparent;
+    border-radius: 25px;
+}
+
+.new-review-header-name {
+    color: #FFFFFF;
+}
+
+.new-review-header-name-text {
+    font-size: 2.7rem;
+    font-weight: 400;
+    font-family: Roboto, serif;
+}
+
+.new-review-info {
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-radius: 25px;
+    padding: 45px 70px;
+}
+
+.send-review {
+    margin-top: 35px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+}
+
+.send-review-button {
+    display: inline;
+    border: #3c67eb solid 2px;
+    color: #3c67eb;
+    border-radius: 35px;
+    padding: 15px 20px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.send-review-button:hover {
+    background-color: #3c67eb;
+    color: #FFFFFF;
+}
+
+.send {
+    margin-top: 45px;
+}
+
+.radio-button-text {
+    padding-left: 4px;
+    padding-right: 20px;
+}
+
+.new-review-info-form-block {
+    border: #3c67eb solid 3px;
+    border-radius: 22px;
+    padding: 19px;
+    margin-bottom: 15px;
+}
+
+.new-review-info-form-header-text {
+    margin-bottom: 2px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.new-review-info-form-block > div {
+    padding-top: 8px;
+    margin-left: 15px;
+}
+
+.input-field {
+    border: #3c67eb solid 2.5px;
+    border-radius: 35px;
+    width: 100%;
+    padding: 2.5px 10px;
+}
+
+.new-review-info-organization-type-select {
+    width: 100%;
+    margin-right: 15px;
+    border-radius: 35px;
+    padding: 2.5px 10px;
+    border: #3c67eb solid 2.5px;
+}
+
+.input-header {
+    display: block;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.radio-button {
+    border-color: #3c67eb;
+}
+
+textarea.input-field {
+    margin-top: 5px;
+    padding: 2.5px 23px;
+}
+

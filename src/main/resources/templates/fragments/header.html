@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="u-theme-google-font" rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <title>Document</title>
+    <style>
+        .header {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .container {
+            margin-top: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 689px){
+            .container {
+                display: block;
+            }
+        }
+
+        @media (max-width: 599px){
+            .container {
+                display: flex;
+            }
+        }
+
+        .nav-bar__list {
+            display: flex;
+            justify-content: space-evenly;
+
+        }
+
+        @media (max-width: 599px){
+            .nav-bar__list {
+                display: inline;
+            }
+        }
+
+        @media (max-width: 689px){
+            .nav-bar__list {
+                justify-content: space-evenly;
+                margin-left: -45px;
+            }
+        }
+
+        .nav-bar__item {
+            display: block;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        .nav-bar__list li:not(:first-child) {
+            padding-left: 5px;
+        }
+
+        @media (max-width: 599px){
+            .nav-bar__list li:not(:first-child) {
+                padding-top: 8px;
+            }
+        }
+
+        .nav-bar__btn {
+            display: block;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-family: 'Open Sans', sans-serif;
+            text-decoration: none;
+            color: #0d4cd3;
+            background-color: #273C27;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        .nav-bar__btn:hover {
+            background-color: #d6e2fb;
+        }
+
+        .nav-bar__btn:active {
+            background-color: #cbd7ea;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="header">
+            <div class="container">
+
+                <nav class="nav-bar">
+                    <ul class="nav-bar__list">
+                        <li class="nav-bar__item"><a th:href="@{/}" class="nav-bar__btn">Главная</a></li>
+                        <li class="nav-bar__item"><a th:href="@{/aboutMe}" class="nav-bar__btn">О нас</a></li>
+                        <li class="nav-bar__item" th:if = "${principal} != null and ${principal.isVerification}" sec:authorize="hasRole('SUPPLIER')"><a  class="nav-bar__btn" th:href="@{/newService}">Добавить услугу (только поставщик)</a></li>
+                        <li class="nav-bar__item" th:if = "${principal} == null"><a th:href="@{/reg}" class="nav-bar__btn">Регистрация</a></li>
+                        <li class="nav-bar__item" th:if = "${principal} == null"><a th:href="@{/login}" class="nav-bar__btn">Вход</a></li>
+                        <li class="nav-bar__item" th:if = "${principal} != null"><a th:href="@{/reviews}" class="nav-bar__btn">Услуги</a></li>
+                        <li class="nav-bar__item" th:if = "${principal} != null"><a th:href="@{/logout}" class="nav-bar__btn">Выйти</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

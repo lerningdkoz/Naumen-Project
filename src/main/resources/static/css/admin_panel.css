@@ -1,0 +1,80 @@
+body { 
+    font-weight: 400;
+    font-family: Roboto, serif;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: #ee3f58;
+    padding: 15px 30px;
+    border: transparent;
+    border-radius: 25px;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.header > h1 {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.header > h4 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.table {
+    background-color: rgba(0, 0, 0, 0.03);
+    border-radius: 25px;
+    padding: 20px;
+}
+
+.admin-table  {
+    border: transparent;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #000000;
+    padding: 7px;
+    font-weight: 400;
+}
+
+th[scope='col'] {
+    background-color: #3c67eb;
+    color: #fff;
+    font-weight: 500;
+}
+
+.btn {
+    border: #3c67eb solid 2px;
+    color: #3c67eb;
+    border-radius: 35px;
+    padding: 7px 12px;
+    font-weight: 400;
+    font-size: 16px;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.03);
+    cursor: pointer;
+    display: block;
+}
+
+.ban{
+    border-color: #ee3f58;
+    color: #ee3f58;
+}
+
+.btn.ban:hover{
+    background-color: #ee3f58;
+    color: #FFFFFF;
+}
+
+.btn:hover {
+    background-color: #3c67eb;
+    color: #FFFFFF;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="ru" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="​Только честные отзывы о услугах">
+    <meta name="description" content="">
+    <title>Новая услуга</title>
+    <link rel="stylesheet" th:href="@{/css/nicepage.css}" media="screen">
+    <link rel="stylesheet" th:href="@{/css/mainPage.css}" media="screen">
+    <link rel="stylesheet" th:href="@{/css/new_review.css}" media="screen">
+    <link rel="stylesheet" th:href="@{/css/review.css}" media="screen">
+    <script class="u-script" type="text/javascript" th:src="@{/js/jquery.js}" defer=""></script>
+    <script class="u-script" type="text/javascript" th:src="@{/js/nicepage.js}" defer=""></script>
+    <meta name="generator" content="Nicepage 5.8.2, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <script type="application/ld+json">{
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "",
+        "logo": "images/2267389.jpg"
+    }</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="review">
+    <meta property="og:type" content="website">
+    <meta data-intl-tel-input-cdn-path="intlTelInput/">
+</head>
+<body class="u-body u-xl-mode" data-lang="ru">
+<header class="u-clearfix u-custom-color-4 u-header u-header" id="sec-6153" th:insert="~{fragments/header}">
+</header>
+<div class="u-clearfix wrapper">
+    <section class="new-review-header">
+        <div class="new-review-header-name">
+            <span class="new-review-header-name-text">Новая услуга</span>
+        </div>
+    </section>
+    <section class="new-review-info">
+        <form class="new-review-info-form" th:action="@{/newService}" method="post">
+            <div class="new-review-info-form-block">
+                <div>
+                    <span class="input-header">Название услуги</span>
+                    <input class="input-field" type="text" name="service_name" value="">
+                </div>
+                <div>
+                    <span class="input-header">Название организации</span>
+                    <input class="input-field" type="tel" name="service_org" value="">
+                </div>
+                <div>
+                    <span class="input-header">Адрес предоставления услуги</span>
+                    <input class="input-field" type="tel" name="service_address" value="">
+                </div>
+                <div class="new-review-info-form-textarea">
+                    <span class="input-header" >Описание</span>
+                    <textarea class="input-field" rows="5" name="description"></textarea>
+                </div>
+            </div>
+            <div class="send">
+                <button type="submit" class="send-review-button">Добавить услугу</button>
+            </div>
+        </form>
+    </section>
+</div>
+
+
+<footer class="u-align-center u-clearfix u-footer u-blue-80 u-footer" id="sec-a4c6" th:insert="~{fragments/footer}">
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

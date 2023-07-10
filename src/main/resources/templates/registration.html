@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" th:href="@{/css/registration.css}" media="screen">
+    <link rel="stylesheet" th:href="@{/css/nicePage.css}" media="screen">
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap'@'5.0.2/dist/css/bootstrap.min.css}" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link id="u-theme-google-font" rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+    <script src = "https://vk.com/js/api/openapi.js?121"></script>
+</head>
+<header class="u-clearfix u-custom-color-4 u-header u-header" id="sec-3334" th:insert="~{fragments/header}">
+</header>
+<body class="u-body u-xl-mode" data-lang="ru">
+<div class="u-clearfix u-sheet u-sheet-1">
+    <h1 class="u-text u-text-default u-text-1">Регистрация</h1>
+    <div th:if="${mes}">
+        <div th:text="${mes}"></div>
+    </div>
+    <form th:action="@{/reg}"
+          class="u-clearfix u-form-spacing-20 u-form-vertical u-inner-form" style="padding: 10px"
+          method="post">
+        <label for="name-3b9a" class="u-label">Имя</label>
+        <input type="text" placeholder="Введите ваше имя" id="name-3b9a" name="name"
+               class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-radius-16 u-input-1">
+
+        <label for="email-3b9a" class="u-label">Электронная почта</label>
+        <input type="email" placeholder="Введите ваш email адрес" id="email-3b9a" name="username"
+               class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-radius-16 u-input-2">
+
+
+        <label for="text-db4e" class="u-label">Пароль</label>
+        <input type="password" placeholder="Придумайте ваш пароль" id="text-db4e" name="password"
+               class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-radius-16 u-input-3">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" value="SUPPLIER" id="flexCheckDefault" name="roles" onclick="document.getElementById('text-db4ee').type = 'number'">
+            <label class="form-check-label" for="flexCheckDefault">
+                Я поставщик
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" value="USER" id="flexCheckChecked" checked name="roles" onclick="document.getElementById('text-db4ee').type = 'hidden'">
+            <label class="form-check-label" for="flexCheckChecked">
+                Я пользователь
+            </label>
+        </div>
+        <br>
+        <input type="hidden" placeholder="Введите ваш инн" id="text-db4ee" name="INN"
+               class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-radius-16 u-input-3">
+        <br>
+        <button type="submit"
+                class="u-align-left u-border-2 u-border-palette-2-base u-btn u-btn-round u-button-style u-palette-2-base u-radius-50 u-btn-1">
+            Подтвердить
+        </button>
+<!--        <script-->
+<!--                type="text/javascript"-->
+<!--                src="https://vk.com/js/api/openapi.js?168"-->
+<!--                charset="windows-1251"-->
+<!--        ></script>-->
+<!--        <script type="text/javascript">-->
+<!--            VK.init({ apiId: 51651944 });-->
+<!--        </script>-->
+<!--        <div id="vk_auth"></div>-->
+<!--        <script type="text/javascript">-->
+<!--            VK.Widgets.Auth("vk_auth");-->
+<!--        </script>-->
+    </form>
+</div>
+</body>
+<footer class="u-align-center u-clearfix u-footer u-blue-80 u-footer" id="sec-a4c6" th:insert="~{fragments/footer}">
+</footer>
+</html>

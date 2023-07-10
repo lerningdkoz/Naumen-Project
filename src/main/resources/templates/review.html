@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Отзыв</title>
+    <link rel="stylesheet" th:href="@{/css/review.css}" media="screen">
+    <link rel="stylesheet" th:href="@{/css/nicePage.css}" media="screen">
+    <link id="u-theme-google-font" rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+
+</head>
+<header class="u-clearfix u-custom-color-4 u-header u-header" id="sec-6153" th:insert="~{fragments/header}">
+</header>
+<body class="u-body u-xl-mode" data-lang="ru">
+<div class="u-clearfix wrapper">
+    <section class="new-review-header">
+        <div class="organization-name">
+            <span class="organization-name-text" th:text="${review.name}"></span>
+        </div>
+        <div class="organization-description">
+            <span class="organization-description-text" th:text="${review.nameOrg}"><b>Медицинская организация</b></span>
+            <span class="organization-description-text" th:text="${review.address}"><b>Адрес:</b> Комсомольская 59Б</span>
+            <div class="organization-description-ranking">
+                <span class="organization-description-text" th:text="Оценка + ': ' + ${aveRait}"><b>Оценка:</b> 3</span>
+                <img th:if="${aveRait &gt; 0 and aveRait &lt; 6}" th:src="@{images/yellow_star.png}">
+                <img th:if="${aveRait &gt; 1 and aveRait &lt; 6}" th:src="@{images/yellow_star.png}">
+                <img th:if="${aveRait &gt; 2 and aveRait &lt; 6}" th:src="@{images/yellow_star.png}">
+                <img th:if="${aveRait &gt; 3 and aveRait &lt; 6}" th:src="@{images/yellow_star.png}">
+                <img th:if="${aveRait &gt; 4 and aveRait &lt; 6}" th:src="@{images/yellow_star.png}">
+            </div>
+        </div>
+    </section>
+    <section class="map">
+        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A59621053aed816b045f361c72a573960745d23ca1aa3ef11c76ed44a5afc1381&amp;width=100%25&amp;height=500&amp;lang=ru_RU&amp;scroll=true"></script>
+    </section>
+    <section class="reviews">
+        <div th:each="feedback : ${listFeedback}" class="review">
+            <div class="review-header">
+                <div class="review-header-left-side">
+                    <div class="review-header-left-side-user-profile">
+                        <div class="review-header-left-side-user-profile-pic">
+                            <img class="review-header-left-side-user-profile-pic-img" alt="user logo" th:src="@{images/user_logo_1.png}">
+                        </div>
+                        <div class="review-header-left-side-user-profile-name">
+                            <span class="review-header-left-side-user-profile-name-text" th:text="${feedback.user.name}">Пользователь 2</span>
+                        </div>
+                    </div>
+                    <div class="review-header-left-side-type">
+                        <span class="review-header-left-side-type-text" th:text="${feedback.type}">Отзыв</span>
+                    </div>
+                </div>
+                <div class="review-right-side">
+                    <div class="review-right-side-date">
+                        <span class="review-right-side-date-text" th:text="${feedback.dateTime}">25 дек 2022</span>
+                    </div>
+                    <div class="review-right-side-rank" >
+                        <img th:if="${feedback.rait &gt; 0 and feedback.rait &lt; 6}" th:src="@{images/yellow_star.png}">
+                        <img th:if="${feedback.rait &gt; 1 and feedback.rait &lt; 6}" th:src="@{images/yellow_star.png}">
+                        <img th:if="${feedback.rait &gt; 2 and feedback.rait &lt; 6}" th:src="@{images/yellow_star.png}">
+                        <img th:if="${feedback.rait &gt; 3 and feedback.rait &lt; 6}" th:src="@{images/yellow_star.png}">
+                        <img th:if="${feedback.rait &gt; 4 and feedback.rait &lt; 6}" th:src="@{images/yellow_star.png}">
+                        <span class="review-right-side-rank-text" th:text="${feedback.rait}">5</span>
+                    </div>
+                </div>
+            </div>
+            <div class="review-body">
+                <span class="review-body-text" th:text="${feedback.text}">Всё классно!</span>
+            </div>
+        </div>
+    </section>
+    <section class="new-review">
+        <div>
+            <a th:if="${principal.isVerification}" th:href="@{/newFeedback(id=${review.id})}" sec:authorize="hasRole('USER')" class="new-review-button">Оставить отзыв</a>
+        </div>
+    </section>
+</div>
+
+
+<footer class="u-align-center u-clearfix u-footer u-blue-80 u-footer" id="sec-a4c6" th:insert="~{fragments/footer}">
+</footer>
+</body>
+</html>

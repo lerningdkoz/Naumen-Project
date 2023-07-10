@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Отзыв</title>
+<link rel="stylesheet" th:href="@{/css/review.css}" media="screen">
+<link rel="stylesheet" th:href="@{/css/nicePage.css}" media="screen">
+  <link rel="stylesheet" th:href="@{/css/admin_panel.css}" media="screen">
+<link id="u-theme-google-font" rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+<link id="u-page-google-font" rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+
+</head>
+<body>
+<main class="wrapper">
+  <section class="header">
+<h4>Панель администратора</h4>
+  </section>
+  <section class="table">
+<table class="admin-table">
+  <tr>
+    <th scope="col">Email</th>
+    <th scope="col">Активность</th>
+    <th scope="col">Роли</th>
+    <th scope="col">Бан</th>
+    <th scope="col">Посмотреть действия</th>
+    <th scope="col">Верифицировать</th>
+  </tr>
+    <tr th:each="user : ${users}">
+      <th th:text="${user.username}"></th>
+      <th th:if="${user.active}">true</th>
+      <th th:if="!${user.active}">false</th>
+      <div th:each="role : ${user.roles}">
+      <th th:text="${role}"></th>
+      </div>
+      <th>
+        <form th:action="@{/admin/user/ban(id=${user.id})}" method="post">
+          <input class="btn ban" type="submit" value="Бан">
+        </form>
+      </th>
+      <th>
+        <form th:action="@{/admin/user/info(id=${user.id})}" method="post">
+          <input class="btn" type="submit" value = "Информация">
+        </form>
+      </th>
+      <th>
+        <form th:action="@{/admin/user/verif(id=${user.id})}" method="post">
+          <input class="btn" type="submit" value="Верифицировать">
+        </form>
+      </th>
+    </tr>
+</table>
+  </section>
+</main>
+</body>
+</html>
