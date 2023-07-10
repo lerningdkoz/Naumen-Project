@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>О нас</title>
+    <link rel="stylesheet" th:href="@{/css/aboutMe.css}" media="screen">
+    <link rel="stylesheet" th:href="@{/css/nicePage.css}" media="screen">
+    <link id="u-theme-google-font" rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+
+</head>
+<header class="u-clearfix u-custom-color-4 u-header u-header" id="sec-6153" th:insert="~{fragments/header}">
+</header>
+<body class="u-body u-xl-mode" data-lang="ru">
+<section class="u-clearfix u-image u-section-1" id="carousel_7dcc" data-image-width="1980" data-image-height="1333">
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-align-left u-container-style u-group u-radius-50 u-shape-round u-white u-group-1">
+            <div class="u-container-layout u-valign-middle u-container-layout-1">
+                <h3 class="u-align-left u-custom-font u-font-montserrat u-text u-text-1"> Коротко о нас</h3>
+                <p class="u-align-left u-text u-text-2">Мы стремимся сделать наш продукт лучше,
+                    если у Вас есть пожелания насчет нашего продукта, пишите на почту, указнную в нижней части
+                    экрана.</p>
+                <a th:href="@{/}"
+                   class="u-align-left u-border-2 u-border-palette-2-base u-btn u-btn-round u-button-style u-palette-2-base u-radius-50 u-btn-1">НА
+                    главную</a>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="u-align-center u-clearfix u-footer u-blue-80 u-footer" id="sec-a4c6" th:insert="~{fragments/footer}">
+</footer>
+</body>
+</html>

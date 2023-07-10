@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/admin_panel.css}" media="screen">
+</head>
+<body>
+<h1>Инфо о пользователе</h1>
+<h1 th:text="${user.name}"></h1>
+<section class="table">
+<div th:if="${role}=='SUPPLIER'">
+    <table  class="admin-table">
+        <tr>
+            <th scope="col">Имя</th>
+            <th scope="col">Email</th>
+            <th scope="col">ИНН</th>
+            <th scope="col">Активность</th>
+            <th scope="col">Роль</th>
+            <th scope="col">Услуги</th>
+        </tr>
+        <tr th:each="review: ${reviews}">
+            <th th:text="${user.name}"></th>
+            <th th:text="${user.username}"></th>
+            <th th:text="${user.INN}"></th>
+            <th th:if="${user.active}">true</th>
+            <th th:if="!${user.active}">false</th>
+            <th th:text="${role}"></th>
+            <th>
+            <form th:action="@{/admin/user/infoReview(id=${user.id})}" method="post">
+                <input class="btn ban" type="submit" th:value="${review.description}">
+            </form>
+            </th>
+        </tr>
+    </table>
+
+
+
+</div>
+<div th:if="${role}=='USER'">
+    <table class="admin-table">
+        <tr>
+            <th scope="col">Имя</th>
+            <th scope="col">Email</th>
+            <th scope="col">Активность</th>
+            <th scope="col">Роль</th>
+            <th scope="col">Отзывы</th>
+        </tr>
+        <tr th:each="feedback: ${feedbacks}">
+            <th th:text="${user.name}"></th>
+            <th th:text="${user.username}"></th>
+            <th th:if="${user.active}">true</th>
+            <th th:if="!${user.active}">false</th>
+            <th th:text="${role}"></th>
+            <th th:text="${feedback.text}"></th>
+        </tr>
+    </table>
+</div>
+</section>
+</body>
+</html>

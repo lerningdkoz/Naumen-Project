@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Панель администратора</title>
+<link rel="stylesheet" th:href="@{/css/review.css}" media="screen">
+<link rel="stylesheet" th:href="@{/css/nicePage.css}" media="screen">
+<link rel="stylesheet" href="admin-panel.css">
+<link id="u-theme-google-font" rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+<link id="u-page-google-font" rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+
+</head>
+<body>
+  <main class="wrapper">
+    <section class="header">
+      <h4>Панель администратора</h4>
+    </section>
+    <section class="table">
+    <table class="admin-table">
+      <tr>
+        <th scope="col">Email</th>
+        <th scope="col">Номер телефона</th>
+        <th scope="col">Активность</th>
+        <th scope="col">Роли</th>
+        <th scope="col">Блокировка</th>
+        <th scope="col">Редактирование</th>
+        <th scope="col">Подробная информация</th>
+      </tr>
+      <#list users as user>
+      <tr>
+        <th>${user.username}</th>
+        <th>${user.phone_number}</th>
+        <th><#if user.active>true<#else>false</#if></th>
+        <th><#list user.roles as role>${role}</#list></th>
+        <th>
+          <form action="/admin/user/ban/${user.id}" method="post">
+            <input class="btn ban" type="submit" value="Заблокировать">
+          </form>
+        </th>
+        <th><a href="/admin/user/edit/${user.id}" class="btn">Редактировать</a></th>
+        <th><a href="/user/${user.id}" class="btn">Подробная информация</a></th>
+      </tr>
+      <#else>
+        <h3>Пользователей нет</h3>
+      </#list>
+    </table>
+    </section>
+  </main>
+</body>
+</html>
